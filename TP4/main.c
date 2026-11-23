@@ -27,6 +27,8 @@ int main()
 
 	srand((unsigned int)time(NULL)); // initialisation du générateur de nombres aléatoires
 
+    printf("Bienvenue");
+
     if (menu_principal() == 0) {
         printf("A bientot !\n");
         return 0;
