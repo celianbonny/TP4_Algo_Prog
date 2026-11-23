@@ -23,6 +23,7 @@
     <ClCompile Include="Cartes.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="menu.c" />
+    <ClCompile Include="partie.c" />
     <ClCompile Include="regles.c" />
   </ItemGroup>
   <ItemGroup>

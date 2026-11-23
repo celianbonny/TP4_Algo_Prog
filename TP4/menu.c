@@ -1,19 +1,17 @@
 
 
-#define _CRT_SECURE_NO_WARNINGS   // evite l'erreur de scanf sous Visual Studio (doit etre en premier)
+#define _CRT_SECURE_NO_WARNINGS   
 #include <stdio.h>  
 #include "uno.h"
 
-
 void vider_ligne()
 {
-    int c;
-
-    c = getchar();
-    while (c != '\n' && c != EOF) {
-        c = getchar();
+    
+    while (getchar() != '\n') {
+       
     }
 }
+
 
 
 int lire_nombre()

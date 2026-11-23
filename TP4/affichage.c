@@ -6,9 +6,21 @@
 
 void afficher_couleur(int couleur)
 {
-    char noms[] = "RJBVN";
-
-    printf("%c", noms[couleur]);
+    if (couleur == ROUGE) {
+        printf("R");
+    }
+    else if (couleur == JAUNE) {
+        printf("J");
+    }
+    else if (couleur == BLEU) {
+        printf("B");
+    }
+    else if (couleur == VERT) {
+        printf("V");
+    }
+    else {
+        printf("N");
+    }
 }
 
 
@@ -37,4 +49,30 @@ void afficher_ma_main(int* cartes, int nb)
         afficher_carte(cartes[i]);
         printf("\n");
     }
+}
+
+void afficher_table()
+{
+    int j; 
+    printf("----------------------------------------\n");
+	for (j = 0; j < nb_joueurs; j++) {
+		printf("Joueur %d : %d cartes\n", j+1, nb_mains[j]);
+	}
+    printf("Sens :");
+	if (sens == 1) {
+		printf(" horaire\n");
+	}
+	else {
+		printf(" anti-horaire\n");
+	}
+
+    printf("Carte au sommet : ");
+	afficher_carte(sommet_defausse());
+    printf("\n");
+	printf("Couleur active : ");
+	afficher_couleur(couleur_active);
+	printf("\n");
+	printf("Cartes restantes dans la pioche : %d\n", nb_pioche);
+	printf("\n----------------------------------------\n");
+	printf("\nC'est au joueur %d de jouer\n", courant + 1);
 }

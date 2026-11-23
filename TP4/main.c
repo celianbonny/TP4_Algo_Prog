@@ -15,6 +15,8 @@ int mains[MAX_JOUEURS][MAX_CARTES];
 int nb_mains[MAX_JOUEURS];
 
 int nb_joueurs;
+int courant;
+int sens;
 int couleur_active;
 
 
@@ -23,44 +25,40 @@ int main()
 {
     int sommet;
 
+	srand((unsigned int)time(NULL)); // initialisation du générateur de nombres aléatoires
+
     if (menu_principal() == 0) {
         printf("A bientot !\n");
         return 0;
     }
 
-    nb_defausse = 0;
+	preparer_partie();
+	sommet = sommet_defausse();
 
-    creer_jeu_de_cartes();
-    melanger_cartes(pioche, nb_pioche);
-    distribuer_cartes();
-
-
-    sommet = retourner_premiere_carte();
-
-
-    printf("\nPioche : %d cartes (attendu %d)\n\n", nb_pioche, 108 - nb_joueurs * 7 - 1);
-    printf("Carte au sommet : ");
-    afficher_carte(sommet);
-    printf("\n\n");
-    printf("Main du joueur 0 :\n");
-    afficher_ma_main(mains[0], nb_mains[0]);
 
 
     if (couleur_active == NOIR) {
+        printf("\nLa premiere carte est noire. Main du joueur %d :\n", courant + 1);
+        afficher_ma_main(mains[courant], nb_mains[courant]);
         printf("\n");
         couleur_active = demander_couleur();
-    }
+        }
 
-    printf("\nCouleur active : ");
-    afficher_couleur(couleur_active);
-    printf("\n");
+    afficher_table();
 
-    if (main_peut_jouer(mains[0], nb_mains[0], sommet) == 1) {
+    printf("\nMain du joueur %d :\n", courant + 1);
+    afficher_ma_main(mains[courant], nb_mains[courant]);
+
+    if (main_peut_jouer(mains[courant], nb_mains[courant], sommet) == 1) {
         printf("\nLe joueur peut jouer\n");
     }
     else {
         printf("\nLe joueur doit piocher\n");
     }
+
+	printf("\nPartie finie ? %d\n", partie_finie());
+	passer_au_joueur_suivant();
+	afficher_table();
 
     return 0;
 }
