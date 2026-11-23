@@ -74,4 +74,9 @@ int menu_principal();
 void preparer_partie();
 void passer_au_joueur_suivant();
 int partie_finie();
+void passer_au_joueur_suivant();
+int partie_finie();
+
+//fonctions de tours.c
+void tour_du_joueur();
 #endif

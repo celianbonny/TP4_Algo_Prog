@@ -46,17 +46,8 @@ int main()
 
     afficher_table();
 
-    printf("\nMain du joueur %d :\n", courant + 1);
-    afficher_ma_main(mains[courant], nb_mains[courant]);
-
-    if (main_peut_jouer(mains[courant], nb_mains[courant], sommet) == 1) {
-        printf("\nLe joueur peut jouer\n");
-    }
-    else {
-        printf("\nLe joueur doit piocher\n");
-    }
-
-	printf("\nPartie finie ? %d\n", partie_finie());
+	tour_du_joueur();
+	
 	passer_au_joueur_suivant();
 	afficher_table();
 

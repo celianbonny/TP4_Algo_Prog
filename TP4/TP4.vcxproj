@@ -25,6 +25,7 @@
     <ClCompile Include="menu.c" />
     <ClCompile Include="partie.c" />
     <ClCompile Include="regles.c" />
+    <ClCompile Include="tours.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="uno.h" />

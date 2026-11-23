@@ -16,7 +16,20 @@ void preparer_partie()
 
 void passer_au_joueur_suivant()
 {
-	courant = (courant + sens + nb_joueurs) % nb_joueurs;
+	{
+		if (sens == 1) {
+			courant = courant + 1;       
+			if (courant == nb_joueurs) { 
+				courant = 0;             
+			}
+		}
+		else {
+			courant = courant - 1;       
+			if (courant < 0) {           
+				courant = nb_joueurs - 1;
+			}
+		}
+	}
 }
 
 int partie_finie()
